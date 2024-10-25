@@ -21,7 +21,7 @@ namespace ChessRatingCalculator
         /// <para><strong>Note:</strong> A sanity check for <c>q</c> is performed only if <c>n = 1</c>, in which case <c>q</c> 
         /// must be 0, 50, or 100. For <c>n &gt; 1</c>, the user is responsible for ensuring <c>q</c> accurately reflects 
         /// player A's performance over multiple games.</para>
-        /// <para>The adjustment factor <c>K</c> is calculated as <c>n / 30</c> to proportionally adjust ratings based 
+        /// <para>The adjustment factor <c>K</c> is calculated as <c>n / 20</c> to proportionally adjust ratings based 
         /// on the number of games played, with a maximum value of 1. Setting <c>K &lt;= 1</c> ensures that no grade 
         /// stretching occurs, meaning the ratings do not diverge uncontrollably. This value of <c>K</c> effectively 
         /// limits rating changes over multiple games. If <c>K</c> were allowed to exceed 1, the sum of rating changes 
@@ -103,7 +103,7 @@ namespace ChessRatingCalculator
 
             // Constants
             double g = 50;                // Factor for expected performance calculation
-            double K = Math.Min(n * 1.0 / 30.0, 1.0); // Adjustment factor, applies gradual change to grades
+            double K = Math.Min(n * 1.0 / 20.0, 1.0); // Adjustment factor, applies gradual change to grades
 
             // Calculate grade difference `d`
             double d = (A - B) / 8.0;

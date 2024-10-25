@@ -67,26 +67,25 @@ The program will display the following information in the Command Prompt:
   - `100` = player A won
   - For multiple games, `q` represents the cumulative performance of player A across the match.
 
-- **Adjustment Factor `K`**: Ensures gradual, stable rating adjustments, with a maximum of `1`. The value of `K` is determined by `n / 30`, allowing the program to accurately reflect cumulative game results without causing “grade stretching.”
+- **Adjustment Factor `K`**: Ensures gradual, stable rating adjustments, with a maximum of `1`. The value of `K` is determined by `n / 20`, allowing the program to accurately reflect cumulative game results without causing “grade stretching.”
 
-## Integration for ECF Rating Team
+## Integration Guide
 
-The **ECF rating team** can incorporate `ChessRatingCalculator.exe` into their existing rating suite to automate grade adjustment calculations. This tool can be easily integrated into any Windows-based program or script that the team currently uses, allowing it to interact seamlessly with existing player data. 
+For those interested in integrating `ChessRatingCalculator.exe` into a program suite, this tool can be easily called as a subprocess in any Windows-based application, enabling it to interact seamlessly with existing player data.
 
 ### Integration Steps
 
 1. **Calling `ChessRatingCalculator.exe` from Your Program**:
-   - ECF can call `ChessRatingCalculator.exe` as a subprocess in Windows, passing in the necessary parameters for player ratings, activity status, game result, and game count.
+   - Use a subprocess to call `ChessRatingCalculator.exe`, passing in the necessary parameters for player ratings, activity status, game result, and game count.
 
 2. **Parsing Output**:
    - Capture and parse the output to extract:
      - `Adjusted Rating An`
      - `Adjusted Rating Bn`
-   - Additional checks, such as grade stretching prevention, can be used to ensure alignment with ECF’s historical grade calculations.
+   - Additional checks on stability can ensure no grade stretching occurs in your system.
 
 3. **Using with Existing Data**:
-   - While `ChessRatingCalculator.exe` does not interact with a database, it can be called in conjunction with a database system. This allows ECF to automate adjustments by fetching initial ratings from the database, running calculations, and updating adjusted ratings directly in the database.
-   - This setup mirrors the calculation model used in historical ECF grades, ensuring the results are accurate, stable, and stretch-free.
+   - While `ChessRatingCalculator.exe` does not interact with a database directly, it can be called in conjunction with a database system. This allows seamless adjustments by fetching initial ratings from the database, running calculations, and updating adjusted ratings directly in your data storage.
 
 ## Acknowledgments
 
