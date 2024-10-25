@@ -86,7 +86,7 @@ The **ECF rating team** can incorporate `ChessRatingCalculator.exe` into their e
 
 3. **Using with Existing Data**:
    - While `ChessRatingCalculator.exe` does not interact with a database, it can be called in conjunction with a database system. This allows ECF to automate adjustments by fetching initial ratings from the database, running calculations, and updating adjusted ratings directly in the database.
-   - This setup mirrors the causation model used in historical ECF grades, ensuring the results are accurate, stable, and stretch-free.
+   - This setup mirrors the calculation model used in historical ECF grades, ensuring the results are accurate, stable, and stretch-free.
 
 ## Acknowledgments
 
